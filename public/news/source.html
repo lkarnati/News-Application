@@ -5,7 +5,7 @@
                 <label for="selectedSourceList">Select Sources <i>(Maximum 5)</i> </label>
                 <div class="has-error" isteven-multi-select="" input-model="sourceCtrl.sourceList" button-label="name" max-height="180px;" output-model="sourceCtrl.selectedSourceList"
                      name="selectedSourceList" id="selectedSourceList" search-key="name" item-label="name"
-                     on-select-none="sourceCtrl.resetSourceList(sourceCtrl.selectedSourceList)" on-reset="sourceCtrl.resetSourceList(sourceCtrl.selectedSourceList)" on-select-all="sourceCtrl.selectSourceList(sourceCtrl.selectedSourceList)"
+                     on-select-none="sourceCtrl.resetSourceList(sourceCtrl.selectedSourceList)" on-reset="sourceCtrl.resetSourceList(sourceCtrl.selectedSourceList)" on-select-all="sourceCtrl.selectAll()"
                      on-item-click="sourceCtrl.selectSourceList(sourceCtrl.selectedSourceList)" max-labels="5" tick-property="ticked">
                 </div>
             </div>
@@ -20,6 +20,31 @@
                 <a ui-sref="news.article({sourceId: source.id})" class="list-group-item" ng-repeat="source in sourceCtrl.selectedSourceList" >
                     {{source.name}}
                 </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <!-- Modal -->
+            <div class="modal fade" id="myModalWarning" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Warning</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>You cannot select more than 5, please unselect one to continue.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <!--<button type="button" class="btn btn-default" class="close" data-dismiss="modal" ng-click="articleCtrl.cancelFav(articleCtrl.article)">Cancel</button>-->
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="sourceCtrl.setTopFive()">Ok</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

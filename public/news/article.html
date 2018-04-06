@@ -6,7 +6,7 @@
                     <div class="panel-heading" role="tab" id="article_{{$index}}">
                         <h4 class="panel-title">
                             <div role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne_{{$index}}" aria-expanded="true" aria-controls="collapseOne" ng-click="article.isopen=!article.isopen;">
-                                <span class="fa fa-angle-right" ng-if="!article.isopen"></span>
+                                <span class="fa fa-angle-right"   ng-if="!article.isopen"></span>
                                 <span class="fa fa-angle-down" ng-if="article.isopen"></span>
                                 <span>{{article.title}}</span>
                                 <span class="fa fa-star-o" ng-if="!articleCtrl.showFav && !article.favourite" uib-tooltip="Save article"  ng-click="articleCtrl.setRemoveFavDialog(article);$event.stopPropagation();"></span>

@@ -8,6 +8,8 @@ angular.module("newsapp.news").controller("sourceController", sourceController),
         sourceCtrl.getAllSources = getAllSources;
         sourceCtrl.selectSourceList = selectSourceList;
         sourceCtrl.resetSourceList = resetSourceList;
+        sourceCtrl.setTopFive = setTopFive;
+        sourceCtrl.selectAll = selectAll;
 
         _initialize();
 
@@ -59,11 +61,18 @@ angular.module("newsapp.news").controller("sourceController", sourceController),
             $localStorage.selectedSourceList = [];
         }
 
+        function selectAll() {
+            $('#myModalWarning').modal('show');
+
+        }
+
         // set the tiles on selection and if number of selected values is less than 5
         function selectSourceList(selectedSourceList) {
-            //console.log(sourceCtrl.selectedSourceList);
+            console.log(sourceCtrl.selectedSourceList);
             if(sourceCtrl.selectedSourceList.length > 5) {
+            console.log("entering !!!")
                 sourceCtrl.isValid = false;
+                $('#myModalWarning').modal('show');
                 return;
             } else {
                 sourceCtrl.isValid = true;
@@ -71,6 +80,10 @@ angular.module("newsapp.news").controller("sourceController", sourceController),
                 $localStorage.selectedSourceList = sourceCtrl.selectedSourceList;
                 //console.log($rootScope.selectedSourceList);
             }
+        }
+
+        function setTopFive() {
+            $state.reload();
         }
 
     }
