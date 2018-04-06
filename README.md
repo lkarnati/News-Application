@@ -13,8 +13,9 @@ Prerequisites:
 Setup and Working:
 ==================
 1. Download the application from github
-2. Command to download lowdb: npm install lowdb
-3. Command to download all the packages from package.json: npm install
+2. Go to the location of saved project in terminal. 
+3. Command to download lowdb: npm install lowdb, 
+   Command to download all the packages from package.json: npm install
 4. Command to start the node server : node server.js
 5. The port is set to 8080 in server.js
 6. http://localhost:8080/ - Open this in browser
