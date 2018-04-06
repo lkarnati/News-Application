@@ -18,7 +18,6 @@
         <div class="col-xs-6" ng-if="sourceCtrl.selectedSourceList.length <= 5 && sourceCtrl.isValid">
             <div class="list-group">
                 <a ui-sref="news.article({sourceId: source.id})" class="list-group-item" ng-repeat="source in sourceCtrl.selectedSourceList" >
-                    <!--ng-click="getArticles(source.id)"-->
                     {{source.name}}
                 </a>
             </div>

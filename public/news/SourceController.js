@@ -1,15 +1,12 @@
 (function() {
 
 angular.module("newsapp.news").controller("sourceController", sourceController),
-    sourceController.$inject = ["$scope", "$rootScope", "$http", "$state"]
+    sourceController.$inject = ["$scope", "$rootScope", "$http", "$state", "$localStorage"]
 
-    function sourceController($scope, $rootScope, $http, $state) {
-        console.log("hi !!!!!!")
+    function sourceController($scope, $rootScope, $http, $state, $localStorage) {
         var sourceCtrl = this;
         sourceCtrl.getAllSources = getAllSources;
         sourceCtrl.selectSourceList = selectSourceList;
-        sourceCtrl.getArticles = getArticles;
-
 
         _initialize();
 
@@ -22,16 +19,17 @@ angular.module("newsapp.news").controller("sourceController", sourceController),
 
         }
 
+        //get all sources available and tick them if previously selected
         function getAllSources(callback) {
              $http.get('/api/sources')
                .then(
                  function (response) {
                     console.log(response);
                     sourceCtrl.sourceList = response.data.sources;
-                    console.log(sourceCtrl.sourceList);
-                    console.log($rootScope.selectedSourceList);
+                    if ($rootScope.selectedSourceList == null) {
+                        $rootScope.selectedSourceList = $localStorage.selectedSourceList;
+                    }
                     if (typeof $rootScope.selectedSourceList !== "undefined" && $rootScope.selectedSourceList.length > 0) {
-                        console.log("entering");
                         for (i = 0; i < $rootScope.selectedSourceList.length; i++) {
                             for (j = 0; j < sourceCtrl.sourceList.length; j++) {
                                 if ($rootScope.selectedSourceList[i].id === sourceCtrl.sourceList[j].id) {
@@ -49,6 +47,7 @@ angular.module("newsapp.news").controller("sourceController", sourceController),
                  });
         }
 
+        // set the tiles on selection and if number of selected values is less than 5
         function selectSourceList(selectedSourceList) {
             console.log(selectedSourceList)
             if(selectedSourceList.length > 5) {
@@ -57,12 +56,9 @@ angular.module("newsapp.news").controller("sourceController", sourceController),
             } else {
                 sourceCtrl.isValid = true;
                 $rootScope.selectedSourceList = selectedSourceList;
-                console.log($rootScope.selectedSourceList);
+                $localStorage.selectedSourceList = selectedSourceList;
+                //console.log($rootScope.selectedSourceList);
             }
-        }
-
-        function getArticles(sourceId) {
-            $state.go('news.article', {"sourceId": sourceId});
         }
 
     }

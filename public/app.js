@@ -17,26 +17,26 @@
                     $urlRouterProvider
                         .otherwise('/login');
                     $stateProvider
-                        .state('login', {
+                        .state('login', { //login verification
                             url: '/login',
                             templateUrl: 'login/login.html',
                             controller: 'loginController',
                             controllerAs: 'loginCtrl'
                         })
-                        .state('news', {
+                        .state('news', { // has header and footer
                             url: '/news',
                             abstract:true,
                             templateUrl: 'news/news.html',
                             controller: 'newsController',
                             controllerAs: 'newsCtrl'
                         })
-                        .state('news.source', {
+                        .state('news.source', { // to select the sources
                             url: '/source',
                             templateUrl: 'news/source.html',
                             controller: 'sourceController',
                             controllerAs: 'sourceCtrl'
                         })
-                        .state('news.article', {
+                        .state('news.article', { //to display all articles and saved articles
                             url: '/article',
                             templateUrl: 'news/article.html',
                             controller: 'articleController',

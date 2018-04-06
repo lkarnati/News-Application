@@ -28,14 +28,11 @@ app.get('/api/sources', function(req, res) {
    newsapi.v2.sources({
      language: 'en',
    }).then(response => {
-     //console.log(response.status);
-     //console.log(response.sources.length);
+    //sending only id and name back to the UI
      var obj = {}
      var key = 'sources';
      obj[key] = [];
      for (var i=0;i<response.sources.length;i++) {
-        //console.log(response.sources[i]);
-        //send only id and name to the UI
         var requiredObj = {"id": response.sources[i].id, "name": response.sources[i].name};
         obj[key].push(requiredObj);
      }
@@ -48,6 +45,7 @@ app.get('/api/sources', function(req, res) {
    });
 });
 
+//get all saved articles from the db
 app.get('/api/getfavarticles', function(req, res) {
     var savedArticles = db.get('savedArticles').value()
     res.json(savedArticles);
@@ -68,12 +66,11 @@ app.get('/api/articlesbysource/:sourceId', function(req, res) {
            }
            else  {
              res.json(articlesResponse.articles);
-             //console.log(articlesResponse.articles);
            }
          });
 });
 
-//Add a favourite article
+//save an article to db
 app.post('/api/savearticle', function(req, res){
     // Add an article
     db.get('savedArticles')
@@ -101,8 +98,6 @@ app.delete('/api/removearticle/:title', function(req, res){
 
 //Verify Log in
 app.post('/api/login', function(req, res){
-    console.log(req.body.username);
-    console.log(req.body.password);
     var user = db
       .get('users')
       .find({ username: req.body.username, password: req.body.password})

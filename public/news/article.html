@@ -10,7 +10,7 @@
                                 <span class="fa fa-angle-down" ng-if="article.isopen"></span>
                                 <span>{{article.title}}</span>
                                 <span class="fa fa-star-o" ng-if="!articleCtrl.showFav && !article.favourite" uib-tooltip="Save article"  ng-click="articleCtrl.setRemoveFavDialog(article);$event.stopPropagation();"></span>
-                                <span class="glyphicon glyphicon-star star" ng-if="!articleCtrl.showFav && article.favourite" uib-tooltip="Remove this from saved" ng-click="articleCtrl.setRemoveFavDialog(article);$event.stopPropagation();"></span>
+                                <span class="glyphicon glyphicon-star star" ng-if="!articleCtrl.showFav && article.favourite" uib-tooltip="Remove from saved" ng-click="articleCtrl.setRemoveFavDialog(article);$event.stopPropagation();"></span>
                                 <span class="pull-right">{{article.author}}</span>
                             </div>
                         </h4>
@@ -18,11 +18,11 @@
                     <div id="collapseOne_{{$index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="article_{{$index}}">
                         <div class="panel-body">
                             <div class="row">
-                                <div ng-class="{'col-xs-8' : article.urlToImage != null, 'col-xs-12': article.urlToImage == null}">
+                                <div ng-class="{'col-xs-8' : article.urlToImage != null && article.author != null, 'col-xs-12': article.urlToImage == null || article.author == null}">
                                     <div><b>Date</b> : {{article.publishedAt | date:'dd MMM yyyy'}}</div>
                                     <div>{{article.description}}</div>
                                 </div>
-                                <div class="col-xs-4" ng-if="article.urlToImage != null">
+                                <div class="col-xs-4" ng-if="article.urlToImage != null && article.author != null">
                                     <img src="{{article.urlToImage}}" style="width:100%;height:200px">
                                 </div>
                             </div>

@@ -6,10 +6,8 @@ angular.module("newsapp.news").controller("newsController", newsController),
 
     function newsController($scope, $rootScope, $http, $localStorage) {
         var newsCtrl = this;
-        $rootScope.loginPage = false;
-        console.log($rootScope.user);
+        //set the value of user from localstorage
         if ($rootScope.user == null || typeof $rootScope.user === "undefined") {
-            console.log($localStorage.user);
             $rootScope.user = $localStorage.user;
         }
     }

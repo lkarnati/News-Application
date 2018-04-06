@@ -17,24 +17,23 @@ angular.module("newsapp.login").controller("loginController", loginController),
             $rootScope.user.password = "";
             loginCtrl.error = {};
             loginCtrl.errorFlag = false;
-            $rootScope.loginPage = true;
         }
 
+        //verify login with username and password
         function verify() {
             $http.post('/api/login', $rootScope.user)
                .then(
                  function (response) {
-                   console.log(response.data);
                    if (response.data === "Username or password is incorrect. Please Try again") {
-
-                   loginCtrl.error.message = response.data;
-                   loginCtrl.errorFlag = true;
+                       loginCtrl.error.message = response.data;
+                       loginCtrl.errorFlag = true;
                    } else {
-                    loginCtrl.errorFlag = false;
-                    $rootScope.user.name = response.data.name;
-                    //setting the user info in local storage to preserve during reload
-                    $localStorage.user = $rootScope.user;
-                    $state.go("news.source");
+                        loginCtrl.errorFlag = false;
+                        $rootScope.user.name = response.data.name;
+                        //setting the user info in local storage to preserve during reload
+                        $localStorage.user = $rootScope.user;
+                        //go to source page if success
+                        $state.go("news.source");
                    }
                  },
                  function (error) {

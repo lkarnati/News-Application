@@ -29,7 +29,7 @@ angular.module("newsapp.news").controller("articleController", articleController
             }
 
         }
-
+        //get the articles by source
         function getArticlesBySource(sourceId) {
             $http.get('/api/articlesbysource/'+ sourceId)
                .then(
@@ -43,6 +43,7 @@ angular.module("newsapp.news").controller("articleController", articleController
                  });
         }
 
+        //get the articles by source for saved articles page
         function getFavArticlesOnly() {
             $http.get('/api/getfavarticles/')
                .then(
@@ -54,34 +55,35 @@ angular.module("newsapp.news").controller("articleController", articleController
                    console.log(error);
                  });
         }
-
+        // get fav articles to set the star if already saved for display articles page
         function getFavArticles() {
-                    $http.get('/api/getfavarticles/')
-                   .then(
-                     function (response) {
-                        articleCtrl.favArticles = response.data;
-                        for (var i=0; i< articleCtrl.articles.length; i++) {
-                             for(var j=0; j< articleCtrl.favArticles.length; j++) {
-                                if(articleCtrl.favArticles[j].title === articleCtrl.articles[i].title) {
-                                    articleCtrl.articles[i].favourite = true;
-                                    break;
-                                } else {
-                                    articleCtrl.articles[i].favourite = false;
-                                }
-                             }
-                         }
+            $http.get('/api/getfavarticles/')
+           .then(
+             function (response) {
+                articleCtrl.favArticles = response.data;
+                for (var i=0; i< articleCtrl.articles.length; i++) {
+                     for(var j=0; j< articleCtrl.favArticles.length; j++) {
+                        if(articleCtrl.favArticles[j].title === articleCtrl.articles[i].title) {
+                            articleCtrl.articles[i].favourite = true;
+                            break;
+                        } else {
+                            articleCtrl.articles[i].favourite = false;
+                        }
+                     }
+                 }
 
-                     },
-                     function (error) {
-                       console.log(error);
-                     });
-                }
+             },
+             function (error) {
+               console.log(error);
+             });
+        }
 
+        //set to prev value on cancel in confirmation dialog
         function cancelFav(article) {
             articleCtrl.article.favourite = !articleCtrl.article.favourite;
         }
 
-
+        //save or remove based on selection
         function setRemoveFav(article) {
              if (articleCtrl.article.favourite) {
                 $http.post('/api/savearticle', {id: article.source.id, name: article.source.name, title: article.title, publishedAt: article.publishedAt,
@@ -109,6 +111,7 @@ angular.module("newsapp.news").controller("articleController", articleController
              }
         }
 
+        //display confirmation dialog based on selection
         function setRemoveFavDialog(article) {
             article.favourite = !article.favourite;
             articleCtrl.article = article;
@@ -117,8 +120,6 @@ angular.module("newsapp.news").controller("articleController", articleController
                 articleCtrl.article.heading = "Save Article"
                 articleCtrl.article.content = "Are you sure you want to save this article?"
                 articleCtrl.article.btnValue = "Save";
-
-
             } else { //remove fav
                 articleCtrl.article.heading = "Remove Article"
                 articleCtrl.article.content = "Are you sure you want to remove this from saved articles?"
