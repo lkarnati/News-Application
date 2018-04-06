@@ -20,10 +20,10 @@ Setup and Working:
 6. http://localhost:8080/ - Open this in browser
 7. Login with username: admin and password: password
 8. Wrong credentials would throw an error after verification with database through back end code (nodejs)
-9. Header :
-    Left: Home, Saved Articles
-    Right: User dropdow with Saved Articles and Sign out
-   Footer - NewsAPI url
+9. 1)Header :
+    a)Left: Home, Saved Articles \n
+    b)Right: User dropdow with Saved Articles and Sign out
+   2)Footer - NewsAPI url
 10. When you login it takes you to home page where you can select 5 sources at max from the list of sources provided by newsAPI(https://newsapi.org/).
 11. When you select more than 5, the UI displays an error message.
 12. When a source is selected, a tile (for each of the source selected, one below the other) gets displayed beside the multiselect dropdown.
