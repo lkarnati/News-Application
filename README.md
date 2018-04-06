@@ -1,7 +1,7 @@
 # News-Application
 
-Backend - Node.js
-Frontend - AngularJS
+Backend - Node.js,
+Frontend - AngularJS,
 Database - lowdb
 
 1. Download the application from github
