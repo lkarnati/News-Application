@@ -6,11 +6,11 @@
                     <div class="panel-heading" role="tab" id="article_{{$index}}">
                         <h4 class="panel-title">
                             <div role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne_{{$index}}" aria-expanded="true" aria-controls="collapseOne" ng-click="article.isopen=!article.isopen;">
-                                <span class="glyphicon glyphicon-menu-right" ng-if="!article.isopen"></span>
-                                <span class="glyphicon glyphicon-menu-down" ng-if="article.isopen"></span>
+                                <span class="fa fa-angle-right" ng-if="!article.isopen"></span>
+                                <span class="fa fa-angle-down" ng-if="article.isopen"></span>
                                 <span>{{article.title}}</span>
-                                <span class="fa fa-star-o" ng-if="!articleCtrl.showFav && !article.favourite" uib-tooltip="Set as favourite"  ng-click="articleCtrl.setRemoveFavDialog(article);$event.stopPropagation();"></span>
-                                <span class="glyphicon glyphicon-star star" ng-if="!articleCtrl.showFav && article.favourite" uib-tooltip="Remove as favourite" ng-click="articleCtrl.setRemoveFavDialog(article);$event.stopPropagation();"></span>
+                                <span class="fa fa-star-o" ng-if="!articleCtrl.showFav && !article.favourite" uib-tooltip="Save article"  ng-click="articleCtrl.setRemoveFavDialog(article);$event.stopPropagation();"></span>
+                                <span class="glyphicon glyphicon-star star" ng-if="!articleCtrl.showFav && article.favourite" uib-tooltip="Remove this from saved" ng-click="articleCtrl.setRemoveFavDialog(article);$event.stopPropagation();"></span>
                                 <span class="pull-right">{{article.author}}</span>
                             </div>
                         </h4>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" class="close" data-dismiss="modal" ng-click="articleCtrl.cancelFav(articleCtrl.article)">Cancel</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="articleCtrl.setRemoveFav(articleCtrl.article)">OK</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="articleCtrl.setRemoveFav(articleCtrl.article)">{{articleCtrl.article.btnValue}}</button>
                         </div>
                     </div>
 

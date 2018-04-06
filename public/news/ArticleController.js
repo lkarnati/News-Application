@@ -114,13 +114,15 @@ angular.module("newsapp.news").controller("articleController", articleController
             articleCtrl.article = article;
             //add fav
             if (article.favourite) {
-                articleCtrl.article.heading = "Set as Favourite"
-                articleCtrl.article.content = "Are you sure you want to set this article as favourite?"
+                articleCtrl.article.heading = "Save Article"
+                articleCtrl.article.content = "Are you sure you want to save this article?"
+                articleCtrl.article.btnValue = "Save";
 
 
             } else { //remove fav
-                articleCtrl.article.heading = "Remove as Favourite"
-                articleCtrl.article.content = "Are you sure you want to remove this article as favourite?"
+                articleCtrl.article.heading = "Remove Article"
+                articleCtrl.article.content = "Are you sure you want to remove this from saved articles?"
+                articleCtrl.article.btnValue = "Remove";
             }
             $('#myModal').modal('show');
         }
