@@ -7,6 +7,7 @@ angular.module("newsapp.news").controller("sourceController", sourceController),
         var sourceCtrl = this;
         sourceCtrl.getAllSources = getAllSources;
         sourceCtrl.selectSourceList = selectSourceList;
+        sourceCtrl.resetSourceList = resetSourceList;
 
         _initialize();
 
@@ -47,16 +48,22 @@ angular.module("newsapp.news").controller("sourceController", sourceController),
                  });
         }
 
+        function resetSourceList() {
+            sourceCtrl.selectedSourceList=[];
+            sourceCtrl.isValid = true;
+            $rootScope.selectedSourceList = sourceCtrl.selectedSourceList;
+            $localStorage.selectedSourceList = sourceCtrl.selectedSourceList;
+        }
         // set the tiles on selection and if number of selected values is less than 5
         function selectSourceList(selectedSourceList) {
-            console.log(selectedSourceList)
-            if(selectedSourceList.length > 5) {
+            console.log(sourceCtrl.selectedSourceList);
+            if(sourceCtrl.selectedSourceList.length > 5) {
                 sourceCtrl.isValid = false;
                 return;
             } else {
                 sourceCtrl.isValid = true;
-                $rootScope.selectedSourceList = selectedSourceList;
-                $localStorage.selectedSourceList = selectedSourceList;
+                $rootScope.selectedSourceList = sourceCtrl.selectedSourceList;
+                $localStorage.selectedSourceList = sourceCtrl.selectedSourceList;
                 //console.log($rootScope.selectedSourceList);
             }
         }
