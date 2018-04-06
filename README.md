@@ -6,7 +6,7 @@ Database - lowdb
 
 1. Download the application from github
 2. Install node
-3. Command to download all the packages from package.json npm install
+3. Command to download all the packages from package.json: npm install
 4. Command to start the node server : node server.js
 5. The port is set to 8080 in server.js
 6. http://localhost:8080/ - Open this in browser
@@ -16,7 +16,7 @@ Database - lowdb
     Left: Home, Saved Articles
     Right: User dropdow with Saved Articles and Sign out
    Footer - NewsAPI url
-10. When you login it takes you to home page where you can select 5 sources at max from the list of sources provided by newsAPI.
+10. When you login it takes you to home page where you can select 5 sources at max from the list of sources provided by newsAPI(https://newsapi.org/).
 11. When you select more than 5, the UI displays an error message.
 12. When a source is selected, a tile (for each of the source selected, one below the other) gets displayed beside the multiselect dropdown.
 13. When clicked on the source, it takes the user to the articles page, where the top 10 articles are displayed each in an accordion.
