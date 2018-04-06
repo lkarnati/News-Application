@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "password",
+      "name": "Administrator"
+    }
+  ],
+  "savedArticles": [
+    {
+      "id": "abc-news-au",
+      "name": "ABC News (AU)",
+      "title": "The origins of racism in the US",
+      "publishedAt": "2018-01-07T01:05:00Z",
+      "description": "In the shadow of slavery: The roots of racism in the US.",
+      "author": "ABC Radio National",
+      "urlToImage": "http://www.abc.net.au/radionational/image/8976234-1x1-700x700.jpg"
+    },
+    {
+      "id": "abc-news",
+      "name": "ABC News",
+      "title": "WATCH: Winter storm brings snow, ice, sleet and rain across the US",
+      "publishedAt": "2018-01-13T01:00:15Z",
+      "description": "More than 70 million residents are in the path from Mississippi to Maine.",
+      "author": "ABC News",
+      "urlToImage": "http://a.abcnews.com/images/WNT/180112_wn_pilgrim2_16x9_992.jpg"
+    },
+    {
+      "id": "abc-news",
+      "name": "ABC News",
+      "title": "What Trump's 's---hole' comments could mean for the travel ban",
+      "publishedAt": "2018-01-13T04:01:05Z",
+      "description": "As President Trump’s words are being widely condemned, some legal experts believe that the “s---hole” remark could also impact his case for the travel ban. But given his previous call for a “Muslim ban” and other public statements, other experts aren’t sure t…",
+      "author": "ABC News",
+      "urlToImage": "http://a.abcnews.com/images/Politics/trump-refugee-ban-file-epa-jef-171024_16x9_992.jpg"
+    },
+    {
+      "id": "abc-news",
+      "name": "ABC News",
+      "title": "US review shows pesticides harm threatened salmon, whales",
+      "publishedAt": "2018-01-12T22:38:25Z",
+      "description": "Federal scientists have determined that a family of widely used pesticides poses a threat to dozens of endangered and threatened species, including Pacific salmon, Atlantic sturgeon and Puget Sound orcas. The National Marine Fisheries Service issued its new b…",
+      "author": "ABC News",
+      "urlToImage": "http://a.abcnews.com/images/Technology/WireAP_02d55142644c4674934e4203adeed863_16x9_992.jpg"
+    },
+    {
+      "id": "abc-news",
+      "name": "ABC News",
+      "title": "Hurricane Maria's devastation includes national shortage of a critical medical supply",
+      "publishedAt": "2018-01-14T18:54:00Z",
+      "description": "Hurricane Maria slammed into Puerto Rico nearly five months ago, but its devastating impact continues to be felt, including in a national shortage of critically important, small medical fluid-filled bags for delivering nutrients or medicines to patients intra…",
+      "author": "ABC News",
+      "urlToImage": "http://a.abcnews.com/images/US/iv-bag-2-gty-jt-180114_16x9_992.jpg"
+    },
+    {
+      "id": "bbc-news",
+      "name": "BBC News",
+      "title": "Trump to Approve Iran Nuclear Deal for Last Time",
+      "publishedAt": "2018-01-12T22:28:00Z",
+      "description": "President Trump has again refrained from re-imposing sanctions on Iran -- keeping intact the deal under which Tehran curbed its nuclear programme. Also in the programme: Saudi women are allowed to go to a professional football match for the first time; and Be…",
+      "author": null,
+      "urlToImage": "https://ichef.bbci.co.uk/images/ic/1200x675/p05tqbbp.jpg"
+    }
+  ]
+}

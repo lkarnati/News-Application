@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="form-group">
+                <label for="selectedSourceList">Select Sources <i>(Maximum 5)</i> </label>
+                <div class="has-error" isteven-multi-select="" input-model="sourceCtrl.sourceList" button-label="name" max-height="180px;" output-model="sourceCtrl.selectedSourceList"
+                     name="selectedSourceList" id="selectedSourceList" search-key="name" item-label="name"
+                     on-select-none="sourceCtrl.selectSourceList(sourceCtrl.selectedSourceList)" on-reset="sourceCtrl.selectSourceList(sourceCtrl.selectedSourceList)" on-select-all="sourceCtrl.selectSourceList(sourceCtrl.selectedSourceList)"
+                     on-item-click="sourceCtrl.selectSourceList(sourceCtrl.selectedSourceList)" max-labels="5" tick-property="ticked">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="text-danger" ng-if="sourceCtrl.selectedSourceList.length > 5">Cannot select more than 5</div>
+        </div>
+        <div class="col-xs-6" ng-if="sourceCtrl.selectedSourceList.length <= 5 && sourceCtrl.isValid">
+            <div class="list-group">
+                <a ui-sref="news.article({sourceId: source.id})" class="list-group-item" ng-repeat="source in sourceCtrl.selectedSourceList" >
+                    <!--ng-click="getArticles(source.id)"-->
+                    {{source.name}}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

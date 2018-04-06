@@ -1,0 +1,49 @@
+<!--Fixed Header-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" ui-sref="news.source">News Application</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ng-class="{active: $state.includes('news.source')}"><a ui-sref="news.source">
+                <span class="glyphicon glyphicon-home"></span><span style="margin-left:5px">Home</span> </a></li>
+            <li ng-class="{active: $state.includes('news.article')}">
+                <a ui-sref="news.article({showFav: true})">
+                Saved Articles
+                    <span class="glyphicon glyphicon-star star"></span>
+                </a>
+            </li>
+        </ul>
+        <!--<button type="button" class="btn btn-de navbar-btn" >-->
+            <!--<span ui-sref="news.source">Home</span>-->
+        <!--</button>-->
+        <!--<button type="button" class="btn btn-primary navbar-btn" >-->
+            <!--<span ui-sref="news.article({showFav: true})">Saved Articles</span>-->
+        <!--</button>-->
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <span>{{user.name}}</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a ui-sref="news.article({showFav: true})">Saved Articles<span class="glyphicon glyphicon-star star"></span></a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a ui-sref="login">Sign Out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="content" ui-view >
+
+</div>
+
+<!--Fixed Footer-->
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://newsapi.org/">NewsAPI(https://newsapi.org/)</a></li>
+        </ul>
+    </div>
+</nav>
