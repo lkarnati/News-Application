@@ -1,11 +1,19 @@
 # News-Application
 
-Backend - Node.js,
-Frontend - AngularJS,
-Database - lowdb
+Tech Stack:
+===========
+1.Backend - Node.js,
+2.Frontend - AngularJS,
+3.Database - lowdb
 
+Prerequisites:
+==============
+1. Install node
+
+Setup and Working:
+==================
 1. Download the application from github
-2. Install node
+2. Command to download lowdb: npm install lowdb
 3. Command to download all the packages from package.json: npm install
 4. Command to start the node server : node server.js
 5. The port is set to 8080 in server.js
