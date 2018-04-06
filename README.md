@@ -21,7 +21,7 @@ Setup and Working:
 7. Login with username: admin and password: password
 8. Wrong credentials would throw an error after verification with database through back end code (nodejs)
 9. 1)Header :
-    a)Left: Home, Saved Articles \n
+    a)Left: Home, Saved Articles
     b)Right: User dropdow with Saved Articles and Sign out
    2)Footer - NewsAPI url
 10. When you login it takes you to home page where you can select 5 sources at max from the list of sources provided by newsAPI(https://newsapi.org/).
